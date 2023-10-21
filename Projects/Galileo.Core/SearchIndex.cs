@@ -27,13 +27,24 @@ public class SearchIndex
         }
     }
 
-    public IReadOnlyCollection<int> GetDocumentIndexMatchingTerm(string term)
+    public IReadOnlyCollection<TokenizedDocument> GetDocumentsMatchingTerm(string term)
     {
-        if (_index.TryGetValue(term, out var documents))
+        if (_index.TryGetValue(term.ToLower(), out var documents))
         {
-            return documents.Select(d => d.DocumentPosition).ToList();
+            return documents;
         }
 
-        return new List<int>();
+        return new List<TokenizedDocument>(0);
+    }
+    
+    public static SearchIndex Create(List<string> documents)
+    {
+        var tokenizedDocuments = TokenParser.Parse(documents);
+        
+        var index = new SearchIndex(tokenizedDocuments);
+        
+        index.Build();
+
+        return index;
     }
 }

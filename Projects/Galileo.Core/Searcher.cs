@@ -18,8 +18,10 @@ public class Searcher
 
         foreach (var term in terms)
         {
-            var indexedDocuments = _index.GetDocumentIndexMatchingTerm(term);
-            var documentsMatchingTerm = indexedDocuments.Select(i => _documents[i]);
+            var indexedDocuments = _index.GetDocumentsMatchingTerm(term);
+            
+            var documentsMatchingTerm = indexedDocuments.Select(i => _documents[i.DocumentPosition]);
+            
             searchResult.AddRange(documentsMatchingTerm);
         }
 

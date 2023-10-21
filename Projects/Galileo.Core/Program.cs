@@ -1,19 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-namespace Galileo // Note: actual namespace depends on the project name.
+﻿namespace Galileo
 {
     internal class Program
     {
         private static readonly List<string> Documents = new List<string>()
         {
             "Epic Gaming Pc - intel i7 2.4ghz processor, NVIDIA RTX 3070",
-            "Cool Gaming Pc - amd 3.2ghz ryzen",
+            "Cool Gaming Pc - amd 3.2ghz ryzen gaming processor",
             "Chromebook laptop - 2.4ghz snapdragon 3, 1080p"
         };
 
         static void Main(string[] args)
         {
-            var searchQuery = "chromebook";
+            var searchQuery = "gaming";
 
             var tokenizedDocuments = TokenParser.Parse(Documents);
 

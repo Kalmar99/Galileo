@@ -13,7 +13,31 @@ public class Searcher
 
     public IReadOnlyCollection<string> Search(string searchQuery)
     {
-        var terms = searchQuery.Split(" ").ToList();
+        var termsGroups = searchQuery.ToLower().Split("and").ToList();
+
+        var result = new List<string>();
+
+        foreach (var termsGroup in termsGroups)
+        {
+            var terms = termsGroup.Split(" ").ToList();
+            var results = SearchTerms(terms);
+            result.AddRange(results);
+        }
+
+        if (ContainsAndOperator(termsGroups))
+        {
+            var resultsGroupedByContent = result.GroupBy(r => r);
+            var resultsMatchingAllTerms = resultsGroupedByContent.Where(r => r.ToList().Count == termsGroups.Count);
+            return resultsMatchingAllTerms.Select(g => g.Key).ToList();
+        }
+
+        return result;
+    }
+
+    private bool ContainsAndOperator(IReadOnlyCollection<string> termGroups) => termGroups.Count > 1;
+
+    private IReadOnlyCollection<string> SearchTerms(IReadOnlyCollection<string> terms)
+    {
         var searchResult = new List<string>();
 
         foreach (var term in terms)

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{8D1F2F11-3D75-4C24-8F02-5382B41A63CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galileo.Core", "Projects\Galileo.Core\Galileo.Core.csproj", "{7EFF1E1F-FDCC-4BAC-8010-0977190DB423}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4BF4EBE7-1FE6-45D8-A3B4-063A369FA4DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EFF1E1F-FDCC-4BAC-8010-0977190DB423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFF1E1F-FDCC-4BAC-8010-0977190DB423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFF1E1F-FDCC-4BAC-8010-0977190DB423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFF1E1F-FDCC-4BAC-8010-0977190DB423}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7EFF1E1F-FDCC-4BAC-8010-0977190DB423} = {8D1F2F11-3D75-4C24-8F02-5382B41A63CD}
+	EndGlobalSection
+EndGlobal
